@@ -30,7 +30,7 @@ class InternalTests(unittest.TestCase):
         self.assertEqual(wally_set_operations(None), WALLY_EINVAL)
         # Incorrect struct size
         ops.struct_size = 0
-        self.assertEqual(wally_set_operations(ops), WALLY_EINVAL)
+        self.assertEqual(wally_set_operations(byref(ops)), WALLY_EINVAL)
         # Correct struct size succeeds
         ops.struct_size = sizeof(wally_operations)
         # Set a secp context function that returns NULL
